@@ -16,15 +16,7 @@
   <% end %>
 </p>  
 
-<% if @user.favorite_style %>
-  <p>Favorite beer style:   
-  <% @user.favorite_style %> </p>
-<% end %>
 
-<% if @user.favorite_brewery %>
-  <p>Favorite brewery:   
-  <% @user.favorite_brewery %> </p>
-<% end %> 
 
 <p>
   <strong>Ratings:</strong>
@@ -46,8 +38,3 @@
 <% end %>
 
 <%= link_to 'Back', users_path %>
-
-
-
-
-näytetään käyttäjän lempioluttyyli sekä lempipanimo
