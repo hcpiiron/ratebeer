@@ -52,6 +52,19 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-its'
+end
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-its'
+end
+
 group :production do
    gem 'pg'
    gem 'rails_12factor'
