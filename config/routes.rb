@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   #get 'ratings', to: 'ratings#index'
   #get 'ratings/new', to:'ratings#new'
   resources :ratings, only: [:index, :new, :create, :destroy]
+  resources :places, only:[:index, :show]
+  post 'places', to:'places#search'
   post 'ratings', to: 'ratings#create'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
+  get 'places', to: 'places#index'
   delete 'signout', to: 'sessions#destroy'
 
 end

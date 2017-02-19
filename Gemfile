@@ -63,6 +63,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-its'
+  gem 'webmock'
 end
 
 group :production do
@@ -75,4 +76,6 @@ group :development, :test do
 end
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'httparty'
 
