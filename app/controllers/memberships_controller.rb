@@ -15,11 +15,12 @@ class MembershipsController < ApplicationController
   # GET /memberships/new
   def new
     @membership = Membership.new
-    @beer_clubs = BeerClub.all - current_user.beer_clubs
+    @beer_clubs = BeerClub.all - current_user.beer_clubs   
   end
 
   # GET /memberships/1/edit
   def edit
+    
   end
 
   # POST /memberships
@@ -29,12 +30,11 @@ class MembershipsController < ApplicationController
     @membership.user = current_user
 
     respond_to do |format|
-      if not current_user.beer_clubs.include? @membership.beer_club and @membership.save
-
-        format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
+      if not current_user.beer_clubs.include?  @membership.beer_club and @membership.save
+        format.html { redirect_to @membership.beer_club, notice: "#{@membership.user.username} welcome to club!" }
         format.json { render :show, status: :created, location: @membership }
       else
-        @beer_clubs = BeerClub.all - current_user.beer_clubs
+        @beer_clubs = BeerClub.all - current_user.beer_clubs 
         format.html { render :new }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
@@ -60,7 +60,7 @@ class MembershipsController < ApplicationController
   def destroy
     @membership.destroy
     respond_to do |format|
-      format.html { redirect_to memberships_url, notice: 'Membership was successfully destroyed.' }
+      format.html { redirect_to @membership.user, notice: "Your membership #{@membership.beer_club.name} ended" }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,7 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
-
+  
   # GET /breweries
   # GET /breweries.json
   def index
@@ -31,7 +31,7 @@ class BreweriesController < ApplicationController
       if @brewery.save
         format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }
         format.json { render :show, status: :created, location: @brewery }
-      else
+      else    
         format.html { render :new }
         format.json { render json: @brewery.errors, status: :unprocessable_entity }
       end
@@ -72,6 +72,5 @@ class BreweriesController < ApplicationController
     def brewery_params
       params.require(:brewery).permit(:name, :year)
     end
-
 
 end

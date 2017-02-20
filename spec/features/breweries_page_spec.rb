@@ -2,10 +2,9 @@ require 'rails_helper'
 
 describe "Breweries page" do
   it "should not have any before been created" do
-    visit breweries_path
+    visit breweries_path   
     expect(page).to have_content 'Listing Breweries'
     expect(page).to have_content 'Number of breweries: 0'
-    #save_and_open_page
   end
 
   describe "when breweries exists" do
@@ -30,11 +29,8 @@ describe "Breweries page" do
       click_link "Koff"
 
       expect(page).to have_content "Koff"
-      expect(page).to have_content "Established in 1897"
+      expect(page).to have_content "Established at 1897"
     end
 
-  end
-
-
-
+  end 
 end
