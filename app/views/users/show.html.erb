@@ -39,6 +39,6 @@
 
 
 <% if @user==current_user%>
-  <%= link_to 'change password', edit_user_path(@user) %> <br>
-  <%= link_to 'destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }  %> 
+  <%= link_to 'change password', edit_user_path(@user), class:'btn btn-default' %> <br>
+  <%= link_to 'destroy', @user,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }  %> 
 <% end %>
