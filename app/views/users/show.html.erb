@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2> <%= @user.username %> </h2>
 
 <p>Has made <%= @user.ratings.count %> ratings</p>
@@ -37,8 +35,12 @@
 
 <% end %>
 
-
-<% if @user==current_user%>
-  <%= link_to 'change password', edit_user_path(@user), class:'btn btn-default' %> <br>
-  <%= link_to 'destroy', @user,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }  %> 
+<% if @user==current_user %>
+  <%= link_to 'change password', edit_user_path(@user) %> <br>
+  <%= link_to 'destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }  %> 
 <% end %>
+
+<% if admin_user %>
+  <%= link_to "froze", toggle_frozen_user_path(@user.id), method: :post, class: "btn btn-primary" %>
+<% end %>
+
